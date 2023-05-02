@@ -3,9 +3,22 @@ import { persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage';
 
 const activityStorySlice = createSlice({
-    name: 'story',
+    name: 'activityStory',
     initialState: {
-        activityStory: []
+        activityStory: [
+            {
+                date: "02.05.2023, 18:41:36",
+                result: 80,
+            },
+            {
+                date: "02.05.2023, 18:41:36",
+                result: 70,
+            },
+            {
+                date: "02.05.2023, 18:41:36",
+                result: 90,
+            }
+        ]
     },
     reducers: {
         addActivity(state, action) {
@@ -15,7 +28,7 @@ const activityStorySlice = createSlice({
 });
 
 const persistConfig = {
-    key: 'story',
+    key: 'activityStory',
     storage,
 };
 

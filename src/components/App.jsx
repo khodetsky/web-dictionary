@@ -7,6 +7,8 @@ import { WordCheckPage } from "../pages/WordCheckPage/WordCheckPage";
 import { AddWordPage } from "../pages/AddWordPage/AddWordPage";
 import { ResultsPage } from "../pages/ResultsPage/ResultsPage";
 
+// date.toLocaleString();
+
 export const App = () => {
   return (
     <>

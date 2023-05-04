@@ -31,9 +31,9 @@ the next question.
 2. Clone this repository.
 3. Install the project's base dependencies with the `npm install` command.
 4. Start development mode by running `npm start`.
-5. Open http://localhost:3000/noname-digital-store/ to view it in the browser.
-   The page will automatically reload if you make changes to the code. You will
-   see the build errors and lint warnings in the console.
+5. Open http://localhost:3000/web-dictionary/ to view it in the browser. The
+   page will automatically reload if you make changes to the code. You will see
+   the build errors and lint warnings in the console.
 6. Command `npm test` runs the test watcher in an interactivemode. By default,
    runs tests related to files changed since the last commit.
 7. Command `npm run build` builds the app for production to the build folder. It

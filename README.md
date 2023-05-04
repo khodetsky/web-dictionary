@@ -47,8 +47,7 @@ The production version of the project is automatically linted, built, and
 deployed to GitHub Pages, in the gh-pages branch, every time the main branch is
 updated. For example, after a direct push or an accepted pull request.
 
-The live page can be viewed at
-"https://khodetsky.github.io/noname-digital-store/".
+The live page can be viewed at "https://khodetsky.github.io/web-dictionary/".
 
 ### How it works
 

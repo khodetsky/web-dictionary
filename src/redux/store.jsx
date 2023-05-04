@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { wordsListReducer } from '../redux/wordsListSlice';
-import { activityStoryReducer } from "../redux/activityStorySlice";
+import { wordsListReducer } from './wordsListSlice';
+import { activityStoryReducer } from "./activityStorySlice";
+import { resultsSlice } from "./resultsSlice"
 import { persistStore,   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -11,7 +12,8 @@ import { persistStore,   FLUSH,
 export const store = configureStore({
     reducer: {
         words: wordsListReducer,
-        activityStory: activityStoryReducer
+        activityStory: activityStoryReducer,
+        results: resultsSlice.reducer,
     },
     middleware(getDefaultMiddleware) {
         return getDefaultMiddleware({

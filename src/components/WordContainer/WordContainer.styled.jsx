@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
 export const ListItem = styled.li`
+    display: flex;
+    align-items: center;
+`
+
+export const DataContainer = styled.div`
     height: 30px;
     width: 220px;
     border-radius: 15px;
@@ -17,4 +22,17 @@ export const ListItem = styled.li`
     display: flex;
     align-items: center;
     padding: 0 20px;
+`
+
+export const IconContainer = styled.svg`
+    width: 12px;
+    height: 12px;
+    margin-left: 7px;
+`
+
+export const Icon = styled('use')`
+    stroke: none;
+    fill: #f1f3f4;
+    width: 30px;
+    height: 30px;
 `

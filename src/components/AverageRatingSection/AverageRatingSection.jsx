@@ -1,7 +1,7 @@
 import { getHistoryList } from "../../redux/selectors";
 import { useSelector } from "react-redux";
 
-import { HistoryContainer, SectionTitle } from "./AverageRatingSection.styled";
+import { HistoryContainer, SectionTitle, Text } from "./AverageRatingSection.styled";
 import { ProgressBar } from "../ProgressBar/ProgressBar";
 
 export const AverageRatingSection = () => {
@@ -10,7 +10,10 @@ export const AverageRatingSection = () => {
     return (
         <HistoryContainer>
             <SectionTitle>Середня успішность</SectionTitle>
-            <ProgressBar historyArr={historyList} />
+            {historyList.length > 0
+                ? <ProgressBar historyArr={historyList} />
+                : <Text>Пройдіть перевірку, щоб побачити результат.</Text>
+            }
         </HistoryContainer>
     )
 }

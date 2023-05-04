@@ -1,7 +1,9 @@
 import { Outlet, Link } from "react-router-dom";
 import { Suspense } from "react";
 
-import { Header, NavLinkStyled, Navigation } from "./Navbar.styled";
+import { Header, NavLinkStyled, Navigation, IconContainer, Icon } from "./Navbar.styled";
+import svgSprite from "../../images/sprite.svg";
+import logoImg from "../../images/logo.webp"
 
 export const Navbar = () => {
 
@@ -10,13 +12,28 @@ export const Navbar = () => {
             <Header>
                 <Link to="/" style={{ cursor: "pointer" }}>
                     <div >
-                        <img src={''} alt='логотип' height={30} />
+                        <img src={logoImg} alt='логотип' height={100} />
                     </div>
                 </Link>
                 <Navigation>
-                    <NavLinkStyled to="/">Головна сторінка</NavLinkStyled>
-                    <NavLinkStyled to="/add-word">Додати слово</NavLinkStyled>
-                    <NavLinkStyled to="/word-check">Перевірити знання</NavLinkStyled>
+                    <NavLinkStyled to="/">
+                        <IconContainer >
+                            <Icon href={svgSprite + '#list'}></Icon>
+                        </IconContainer>
+                        Головна сторінка
+                    </NavLinkStyled>
+                    <NavLinkStyled to="/add-word">
+                        <IconContainer >
+                            <Icon href={svgSprite + '#add'}></Icon>
+                        </IconContainer>
+                        Додати слово
+                    </NavLinkStyled>
+                    <NavLinkStyled to="/word-check">
+                        <IconContainer >
+                            <Icon href={svgSprite + '#checked'}></Icon>
+                        </IconContainer>
+                        Перевірити знання
+                    </NavLinkStyled>
                 </Navigation>
             </Header>
 

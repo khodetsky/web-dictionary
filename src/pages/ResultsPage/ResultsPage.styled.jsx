@@ -25,8 +25,40 @@ export const SectionTitle = styled.h1`
     margin-bottom: 20px;
 `
 
-export const Container = styled.div`
+export const ResultText = styled.p`
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 30px;
+    letter-spacing: 0.2px;
+    color: #21293d;
+
+    margin-top: 20px;
+`
+
+export const ListStyled = styled.ul`
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+`
+
+export const TextContainer = styled.div`
+    display: flex;
     align-items: center;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 18px;
+    letter-spacing: 0.2px;
+
+    margin-left: 10px;
+`
+
+export const AnswerWord = styled.span`
+    margin-left: 10px;
+    font-Size: 20px;
+    font-weight: 700;
+    color: ${({trueAnswer}) => trueAnswer ? '#41e21a' : '#e95555'};
 `

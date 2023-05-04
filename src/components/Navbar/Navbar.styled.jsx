@@ -1,12 +1,11 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
-// textColor: #21293d
-
 export const Header = styled.header`
     width: 250px;
     height: calc(100vh - 80px);
     border-radius: 15px;
+    padding-top: 20px;
 
     display: flex;
     flex-direction: column;
@@ -21,7 +20,8 @@ export const NavLinkStyled = styled(NavLink)`
     align-items: center;
     justify-content: flex-start;
     padding-left: 20px;
-    width: 200px;
+    padding-right: 20px;
+    width: 215px;
     height: 40px;
     border-radius: 20px;
 
@@ -48,5 +48,22 @@ export const Navigation = styled.nav`
     margin-top: 20px;
     flex-direction: column;
     gap: 10px;
+`
 
+export const IconContainer = styled.svg`
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+    margin-bottom: 3px;
+`
+
+export const Icon = styled('use')`
+    stroke: none;
+    fill: #21293d;
+    width: 30px;
+    height: 30px;
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    ${NavLinkStyled}.active & {
+        fill: #f1f3f4;
+    }
 `

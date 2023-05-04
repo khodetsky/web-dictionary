@@ -5,24 +5,11 @@ import storage from 'redux-persist/lib/storage';
 const activityStorySlice = createSlice({
     name: 'activityStory',
     initialState: {
-        activityStory: [
-            {
-                date: "02.05.2023, 18:41:36",
-                result: 80,
-            },
-            {
-                date: "02.05.2023, 18:41:36",
-                result: 70,
-            },
-            {
-                date: "02.05.2023, 18:41:36",
-                result: 90,
-            }
-        ]
+        activityStory: []
     },
     reducers: {
         addActivity(state, action) {
-            state.activityStory.push(action.payload);
+            state.activityStory.unshift(action.payload);
         },
     }
 });

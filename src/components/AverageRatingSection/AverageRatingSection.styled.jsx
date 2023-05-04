@@ -26,3 +26,15 @@ export const SectionTitle = styled.h3`
     position: relative;
     z-index: 3;
 `
+
+export const Text = styled.p`
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 18px;
+    letter-spacing: 0.2px;
+    text-align: center;
+    color: #f1f3f4;
+
+    margin-top: 10px;
+`

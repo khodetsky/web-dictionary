@@ -18,4 +18,9 @@ export const ListItem = styled.li`
     align-items: center;
     justify-content: space-around;
     padding: 0 20px;
+
+    :hover, :focus {
+        cursor: pointer;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    }
 `

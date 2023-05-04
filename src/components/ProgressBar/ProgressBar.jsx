@@ -13,8 +13,7 @@ export const ProgressBar = ({ historyArr }) => {
             setAvarageRating(+(totalRating / historyArr.length).toFixed(1))
         }
     }, [historyArr]);
-
-    console.log(avarageRating)
+    
     return (
         <Progressbar>
             <LeftTopPart rating={avarageRating}></LeftTopPart>

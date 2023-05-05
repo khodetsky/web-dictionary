@@ -38,3 +38,9 @@ export const Text = styled.p`
 
     margin-top: 10px;
 `
+
+export const DataBox = styled.div`
+    display: flex;
+    height: calc((100vh - 320px) / 3);
+    align-items: center;
+`

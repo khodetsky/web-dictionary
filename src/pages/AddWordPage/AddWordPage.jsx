@@ -23,14 +23,14 @@ export const AddWordPage = () => {
     };
 
     function validateFeild(value) {
-       let error;
+        let error;
        if (!value) {
          error = 'Обов\'язкове поле*';
        }
-       return error;
+        return error;
     };
 
-    function onFormSubmit({ word, translation }, { resetForm }) {
+    function onFormSubmit({ word, translation }, { resetForm, validate }) {
         dispatch(addWord({ word, translation }));
 
         Notify.success('Слово успішно додано до словника', initNotifixParams);
@@ -41,7 +41,12 @@ export const AddWordPage = () => {
         <MainSection>
             <SectionTitle>Додайте слово до словника</SectionTitle>
 
-            <Formik initialValues={initialValues} onSubmit={onFormSubmit}>
+            <Formik
+                initialValues={initialValues}
+                onSubmit={onFormSubmit}
+                validateOnBlur={false}
+                validateOnChange={false}
+            >
                       {({ errors, touched }) => (
                           <>
                               <SignInFormStyled>

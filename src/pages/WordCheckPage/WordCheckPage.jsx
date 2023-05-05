@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 
 import { MainSection, SectionTitle, Container } from "./WordCheckPage.styled";
@@ -6,16 +6,18 @@ import { QuestionContainer } from "../../components/QuestionContainer/QuestionCo
 import { getWordsList } from "../../redux/selectors";
 import { EndTestBtn } from "../../components/EndTestBtn/EndTestBtn";
 import { NextQuestionBtn } from "../../components/NextQuestionBtn/NextQuestionBtn";
+import { clearResultsState } from "../../redux/resultsSlice";
 
 export const WordCheckPage = () => {
     const wordsList = useSelector(getWordsList);
+    const dispatch = useDispatch();
 
     const [testedWords, setTestedWords] = useState([]);
     const [questionCount, setQuestionCount] = useState(1);
 
     useEffect(() => {
         if (wordsList && wordsList.length > 0) {
-
+            
             function returnChekedWords(array) {
                 let checkedWords = wordsList.reduce((acc, word) => {
                     let random = Math.floor(Math.random() * 3);
@@ -37,7 +39,10 @@ export const WordCheckPage = () => {
 
             setTestedWords(shuffle(returnChekedWords([])));
         }
-    }, [wordsList]);
+        return () => {
+            dispatch(clearResultsState());
+        }
+    }, [wordsList, dispatch]);
 
     function shuffle(arr) {
         for (let i = arr.length - 1; i > 0; i--) {
@@ -56,10 +61,11 @@ export const WordCheckPage = () => {
                     if ((index + 1) === questionCount) {
                         return (
                             <Container key={index}>
-                                <QuestionContainer  wordObj={wordObj} testedWords={testedWords} shuffleFn={shuffle} />
+                                <QuestionContainer wordObj={wordObj} testedWords={testedWords} shuffleFn={shuffle} />
                                 {questionCount !== 10
                                     ? (<NextQuestionBtn questionCount={questionCount} setQuestionCount={setQuestionCount} />)
-                                    : (<EndTestBtn questionCount={questionCount} />)} 
+                                    : (<EndTestBtn questionCount={questionCount} />)
+                                } 
                             </Container>
                         )
                     } else {

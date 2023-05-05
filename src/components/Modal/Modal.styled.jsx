@@ -7,7 +7,7 @@ export const ModalStyles = styled.div`
     transform: translate(-50%, -50%);
 
     width: 700px;
-    height: calc(100vh - 80px);
+    height: 540px;
     border-radius: 15px;
     padding: 20px 30px;
     background-color: #f1f3f4;

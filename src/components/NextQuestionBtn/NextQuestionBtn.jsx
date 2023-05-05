@@ -20,7 +20,7 @@ export const NextQuestionBtn = ({ questionCount, setQuestionCount }) => {
         if (answersList.length < questionCount) {
             Notify.failure('Оберіть один із варіантів відповіді', initNotifixParams);
         } else {
-            setQuestionCount(prev => prev + 1)
+            setQuestionCount(prev => prev + 1);
         }
     }
 

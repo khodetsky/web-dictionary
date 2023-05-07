@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/web-dictionary/static/css/main.c3d5249d.css",
-    "main.js": "/web-dictionary/static/js/main.ebea82a4.js",
+    "main.js": "/web-dictionary/static/js/main.e91fb25b.js",
     "static/media/logo.webp": "/web-dictionary/static/media/logo.6f787d0cf70bfb3f0f49.webp",
     "static/media/sprite.svg": "/web-dictionary/static/media/sprite.a86e79c4994c4e9ad097cdfd6ceed600.svg",
     "index.html": "/web-dictionary/index.html",
     "main.c3d5249d.css.map": "/web-dictionary/static/css/main.c3d5249d.css.map",
-    "main.ebea82a4.js.map": "/web-dictionary/static/js/main.ebea82a4.js.map"
+    "main.e91fb25b.js.map": "/web-dictionary/static/js/main.e91fb25b.js.map"
   },
   "entrypoints": [
     "static/css/main.c3d5249d.css",
-    "static/js/main.ebea82a4.js"
+    "static/js/main.e91fb25b.js"
   ]
 }

@@ -37,13 +37,10 @@ export const QuestionContainer = ({ questionCount, wordObj, testedWords, shuffle
             }
 
             const answers = shuffleFn(returnAuswersArr([wordObj]));
-            console.log(1, answers)
             save('randomAnswers', answers)
             setRandomAnswers(answers);
         } else {
             const arrOfRandomAnswers = load('randomAnswers');
-                console.log(2, arrOfRandomAnswers)
-
             setRandomAnswers(arrOfRandomAnswers);
         }
     }, [wordObj, shuffleFn, testedWords, answersList, questionCount]);

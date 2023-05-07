@@ -6,6 +6,7 @@ import { addActivity } from "../../redux/activityStorySlice";
 import { clearResultsState } from "../../redux/resultsSlice";
 import { getTestResults } from "../../redux/selectors";
 import { Button } from "./EndTestBtn.styled";
+import { remove } from "../storage";
 
 export const EndTestBtn = ({questionCount}) => {
     const navigate = useNavigate();
@@ -34,6 +35,11 @@ export const EndTestBtn = ({questionCount}) => {
                 result: correctAnswers * 10,
                 answersArr: answersList,
             }
+
+            remove('testedWords');
+            remove('questionCount');
+            remove('randomAnswers');
+            remove('answers');
 
             dispatch(addActivity(testResult));
             dispatch(clearResultsState());

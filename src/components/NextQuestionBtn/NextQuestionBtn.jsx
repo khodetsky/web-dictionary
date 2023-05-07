@@ -3,6 +3,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import { Button } from "./NextQuestionBtn.styled";
 import { getTestResults } from "../../redux/selectors";
+import { save } from "../storage";
 
 export const NextQuestionBtn = ({ questionCount, setQuestionCount }) => {
     const answersList = useSelector(getTestResults);
@@ -20,6 +21,7 @@ export const NextQuestionBtn = ({ questionCount, setQuestionCount }) => {
         if (answersList.length < questionCount) {
             Notify.failure('Оберіть один із варіантів відповіді', initNotifixParams);
         } else {
+            save('questionCount', questionCount + 1);
             setQuestionCount(prev => prev + 1);
         }
     }

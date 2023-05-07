@@ -9,7 +9,7 @@ export const AverageRatingSection = () => {
 
     return (
         <HistoryContainer>
-            <SectionTitle>Середня успішность</SectionTitle>
+            <SectionTitle>Середня успішність</SectionTitle>
             <DataBox>
                 {historyList.length > 0
                     ? <ProgressBar historyArr={historyList} />

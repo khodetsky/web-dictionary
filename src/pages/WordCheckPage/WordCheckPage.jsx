@@ -1,77 +1,48 @@
-import { useDispatch, useSelector } from "react-redux";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-import { MainSection, SectionTitle, Container } from "./WordCheckPage.styled";
-import { QuestionContainer } from "../../components/QuestionContainer/QuestionContainer";
-import { getWordsList } from "../../redux/selectors";
-import { EndTestBtn } from "../../components/EndTestBtn/EndTestBtn";
-import { NextQuestionBtn } from "../../components/NextQuestionBtn/NextQuestionBtn";
-import { clearResultsState } from "../../redux/resultsSlice";
+import { MainSection, SectionTitle, ButtonsContainer, Button } from "./WordCheckPage.styled";
+import { Test } from "../../components/Test/Test";
+import { load } from "../../components/storage";
 
 export const WordCheckPage = () => {
-    const wordsList = useSelector(getWordsList);
-    const dispatch = useDispatch();
+    const [isTestStarted, setIsTestStarted] = useState(false);
+    const [newTest, setNewTest] = useState(true);
 
-    const [testedWords, setTestedWords] = useState([]);
-    const [questionCount, setQuestionCount] = useState(1);
+    const initNotifixParams = {
+        position: 'center-top',
+        distance: '70px',
+        timeout: 3000,
+        fontSize: '15px',
+        width: '350px',
+        pauseOnHover: true,
+    };
 
-    useEffect(() => {
-        if (wordsList && wordsList.length > 0) {
-            
-            function returnChekedWords(array) {
-                let checkedWords = wordsList.reduce((acc, word) => {
-                    let random = Math.floor(Math.random() * 3);
+    function onStartNewTestClick() {
+        setIsTestStarted(true);
+    }
 
-                    if (acc.length < 10 && !acc.includes(word) && random === 2) {
-                        acc.push(word);
-                        return acc;
-                    } else {
-                        return acc;
-                    }
-                }, array)
-
-                while (checkedWords.length !== 10) {
-                    checkedWords = returnChekedWords(checkedWords)
-                }
-
-                return checkedWords;
-            }
-
-            setTestedWords(shuffle(returnChekedWords([])));
+    function onResumeTest() {
+        const storageData = load('testedWords');
+        if (!storageData) {
+            Notify.failure('У вас немає незакінченого тесту', initNotifixParams);
+        } else {
+            setNewTest(false);
+            setIsTestStarted(true);
         }
-        return () => {
-            dispatch(clearResultsState());
-        }
-    }, [wordsList, dispatch]);
-
-    function shuffle(arr) {
-        for (let i = arr.length - 1; i > 0; i--) {
-            let j = Math.floor(Math.random() * (i + 1));
-
-            [arr[i], arr[j]] = [arr[j], arr[i]];
-        }
-        return arr
     }
 
     return (
         <MainSection>
-            <SectionTitle>Запитання {questionCount} з 10</SectionTitle>
-            {
-                testedWords.map((wordObj, index) => {
-                    if ((index + 1) === questionCount) {
-                        return (
-                            <Container key={index}>
-                                <QuestionContainer wordObj={wordObj} testedWords={testedWords} shuffleFn={shuffle} />
-                                {questionCount !== 10
-                                    ? (<NextQuestionBtn questionCount={questionCount} setQuestionCount={setQuestionCount} />)
-                                    : (<EndTestBtn questionCount={questionCount} />)
-                                } 
-                            </Container>
-                        )
-                    } else {
-                        return (<div key={index} style={{width: 0, height: 0}}></div>)
-                    }
-                })
+            {!isTestStarted
+                ? <>
+                    <SectionTitle>Перевірте знання збережених слів</SectionTitle>
+                    <ButtonsContainer>
+                        <Button type="button" onClick={onStartNewTestClick}>Розпочати новий тест</Button>
+                        <Button type="button" onClick={onResumeTest}>Продовжити останній тест</Button>
+                    </ButtonsContainer>
+                  </>
+                : <Test newTest={newTest} />
             }
         </MainSection>
     )

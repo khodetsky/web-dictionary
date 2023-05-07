@@ -29,3 +29,13 @@ export const Text = styled.p`
     letter-spacing: 0.2px;
     color: #21293d;
 `
+
+export const TextContainer = styled.div`
+    width: 460px;
+    height: calc((100vh - 320px) / 3);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+`

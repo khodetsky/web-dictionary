@@ -12,13 +12,10 @@ export const ResultsPage = () => {
     const allAnswers = useSelector(getHistoryList);
     
     useEffect(() => {
-        console.log(location)
         if (!location.state?.testEnded) {
             navigate("/", { replace: true });
         }
     }, [navigate, location])
-
-    
 
     return (
         <MainSection>

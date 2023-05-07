@@ -20,9 +20,13 @@ a pie chart with the average test result.
 On the page for adding a word, there is a form with mandatory fields. When you
 submit the form, you add the written word to the table of all your words.
 
-All 10 questions will be displayed one by one on the page with the test. On each
-of them, you should choose one of the four presented answer options and go to
-the next question.
+On the test passing page there are buttons for starting a new test and
+continuing the last test that you could not finish for one reason or another.
+The test consists of 10 questions. In each of them you need to choose a
+translation for the word in English.
+
+After completing the test, you will be taken to a page with the results and all
+your test answers.
 
 ## Information if you want to use this app locally
 
